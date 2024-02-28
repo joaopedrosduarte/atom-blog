@@ -20,8 +20,10 @@ const config: Config = {
         "h2-color": "#290742",
       },
       screens: {
+        "lg2": "1094px",
         "md3": "964px",
         "md2": "914px",
+        "xs": "524px",
       }
     },
   },

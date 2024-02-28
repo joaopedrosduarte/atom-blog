@@ -1,6 +1,5 @@
 "use client";
 
-import { Fade as Hamburger } from "hamburger-react";
 import HeaderOptions from "./HeaderOptions";
 import OptionsType from "@/types/options";
 import SearchBar from "./SearchBar";
@@ -19,8 +18,8 @@ const Header = () => {
   ];
 
   return (
-    <header className="flex items-center justify-center pt-16 pb-8 text-maintext-white bg-main-purple">
-      <div className="flex sm:gap-0 gap-[60px] items-center rg:justify-evenly justify-between px-8 w-full max-w-6xl">
+    <header className="flex items-center justify-center pt-16 p-8 text-maintext-white bg-main-purple">
+      <div className="flex sm:gap-0 gap-[60px] items-center rg:justify-evenly justify-between  w-full max-w-6xl">
         <Image
           className="pt-1"
           src="./logo.svg"
