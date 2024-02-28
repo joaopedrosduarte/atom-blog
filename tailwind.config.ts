@@ -9,13 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "auxiliar-white": "#FBF6FF",
-        "maintext-white": "FFFFFF",
+        "icons-white": "#F2E7FA",
+        "auxiliartext-white": "#FBF6FF",
+        "maintext-white": "#FFFFFF",
         "light-purple": "#9E6DC2",
+        "dark-purple": "#170027",
         "lime-green": "#4FFF4B",
-        "bg-purple": "#290742",
+        "main-purple": "#290742",
         "h1-color": "#9E6DC2",
         "h2-color": "#290742",
+      },
+      screens: {
+        "md3": "964px",
+        "md2": "914px",
       }
     },
   },
