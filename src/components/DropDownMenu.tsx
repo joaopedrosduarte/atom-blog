@@ -1,7 +1,7 @@
 import { Fade as Hamburger } from 'hamburger-react'
 import { Dispatch, SetStateAction } from "react";
 import HeaderOptions from "./HeaderOptions";
-import OptionsType from "@/types/options";
+import OptionsType from "@/types/option";
 import { motion } from "framer-motion";
 
 interface DropDownMenuProps {
@@ -43,6 +43,7 @@ const DropDownMenu = ({
     >
       <div className="flex rounded-[4px] bg-light-purple items-center justify-center overflow-hidden">
         <Hamburger
+          color='#F2E7FA'
           rounded
           size={20}
           toggle={onSetIsMenuOpen}

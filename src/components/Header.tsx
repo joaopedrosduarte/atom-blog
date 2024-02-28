@@ -1,7 +1,7 @@
 "use client";
 
 import HeaderOptions from "./HeaderOptions";
-import OptionsType from "@/types/options";
+import OptionsType from "@/types/option";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
 import Image from "next/image";

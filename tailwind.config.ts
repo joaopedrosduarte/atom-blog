@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "icons-white": "#F2E7FA",
+        "light-gray": "#F2E7FA",
         "auxiliartext-white": "#FBF6FF",
         "maintext-white": "#FFFFFF",
         "light-purple": "#9E6DC2",
