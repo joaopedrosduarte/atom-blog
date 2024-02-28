@@ -23,12 +23,12 @@ const HeaderOptions = ({
       <div className="w-0.5 h-full flex items-center">
         <div
           className={`${
-            isSelected == content ? "md2:bg-lime-green" : "md2:bg-transparent"
+            isSelected == content ? "md2:bg-lime-green group-hover:bg-transparent duration-200" : "md2:bg-transparent"
           } transition-all w-full h-[18px] duration-500`}
         />
       </div>
       <button
-        className="px-1 md2:text-maintext-white md2:group-hover:text-lime-green text-maintext-white transition-colors duration-75"
+        className="pl-1 pr-1.5 md2:text-maintext-white md2:group-hover:text-lime-green text-maintext-white transition-colors duration-75"
       >
         {content}
       </button>

@@ -24,7 +24,11 @@ const config: Config = {
         "md3": "964px",
         "md2": "914px",
         "xs": "524px",
-      }
+      },
+      fontFamily: {
+        poppins: "var(--font-poppins)",
+        roboto: "var(--font-roboto)",
+      },
     },
   },
   plugins: [],

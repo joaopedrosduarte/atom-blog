@@ -27,7 +27,7 @@ const Header = () => {
           height={36}
           alt="logo"
         />
-        <ul className="md2:pl-4 lg:pl-8 pl-0 md2:flex gap-0 lg:gap-8 md3:gap-4 transition-all hidden">
+        <ul className="lg:pl-8 pl-4 md3:flex gap-0 lg:gap-8 md3:gap-2 transition-all hidden">
           {options.map((option, index) => (
             <HeaderOptions
               key={index}

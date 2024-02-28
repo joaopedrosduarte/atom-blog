@@ -39,7 +39,7 @@ const DropDownMenu = ({
   return (
     <motion.div
       animate={isMenuOpen ? "open" : "closed"}
-      className="relative md2:hidden"
+      className="relative md3:hidden"
     >
       <div className="flex rounded-[4px] bg-light-purple items-center justify-center overflow-hidden">
         <Hamburger
