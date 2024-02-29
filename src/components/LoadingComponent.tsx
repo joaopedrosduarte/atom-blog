@@ -7,7 +7,7 @@ const LoadingComponent = () => {
         <div className="flex animate-spin">
           <Image src={"/spinner.svg"} alt="Spinner" width={96} height={96} />
         </div>
-        <span className="text-2xl font-bold text-slate-300 block w-46">Carregando Posts...</span>
+        <span className="text-2xl font-bold text-slate-300 block w-46 text-center">Carregando Posts...</span>
       </div>
     </div>
   );
