@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction } from "react";
 import HeaderOptions from "./HeaderOptions";
 import OptionsType from "@/types/option";
 import { motion } from "framer-motion";
+import wrapperVariants from "@/styles/animation";
 
 interface DropDownMenuProps {
   isSelected: string;
@@ -11,23 +12,6 @@ interface DropDownMenuProps {
   options: OptionsType[];
   onSetIsMenuOpen: Dispatch<SetStateAction<boolean>>;
 }
-
-const wrapperVariants = {
-  open: {
-    scaleY: 1,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.1,
-    },
-  },
-  closed: {
-    scaleY: 0,
-    transition: {
-      when: "afterChildren",
-      staggerChildren: 0.1,
-    },
-  },
-};
 
 const DropDownMenu = ({
   isSelected,
@@ -39,9 +23,9 @@ const DropDownMenu = ({
   return (
     <motion.div
       animate={isMenuOpen ? "open" : "closed"}
-      className="relative md3:hidden"
+      className="sm:relative md3:hidden"
     >
-      <div className="flex rounded-[4px] bg-light-purple items-center justify-center overflow-hidden">
+      <div className="flex rounded-[4px] bg-light-purple hover:bg-green-500 duration-300 items-center justify-center overflow-hidden">
         <Hamburger
           color="#F2E7FA"
           rounded
@@ -50,25 +34,45 @@ const DropDownMenu = ({
           toggled={isMenuOpen}
         />
       </div>
-      <motion.ul
-        initial={wrapperVariants.closed}
-        variants={wrapperVariants}
-        style={{ originY: "top", translateX: "-93.2%" }}
-        className="flex flex-col items-center gap-2 p-2 rounded-lg bg-light-purple shadow-xl 
-        absolute top-[120%] left-[50%] w-[355px] overflow-hidden tanslate-x-[50%]"
-      >
-        {options.map((option, index) => (
-          <HeaderOptions
-            onSetIsSelected={setIsSelected}
-            content={option.name}
-            width={option.width}
-            isSelected={isSelected}
-            key={index}
-          />
-        ))}
-      </motion.ul>
+        <div className={`md3:hidden absolute sm:block flex w-full px-8 top-32 sm:top-[120%] left-0 sm:-translate-x-[528%]`}>
+          <motion.ul
+            initial={wrapperVariants.closed}
+            style={{ originY: "top" }}
+            variants={wrapperVariants}
+            className="flex flex-col items-center gap-2 p-2 
+             w-full rounded-lg bg-light-purple sm:w-[355px]"
+          >
+                {options.map((option, index) => (
+                  <HeaderOptions
+                    onSetIsSelected={setIsSelected}
+                    content={option.name}
+                    width={option.width}
+                    isSelected={isSelected}
+                    key={index}
+                  />
+                ))}
+          </motion.ul>
+        </div>
     </motion.div>
   );
 };
 
 export default DropDownMenu;
+
+{/* <motion.ul
+initial={wrapperVariants.closed}
+variants={wrapperVariants}
+style={{ originY: "top", translateX: "-93.2%" }}
+className="flex flex-col items-center gap-2 p-2 rounded-lg bg-light-purple shadow-xl 
+absolute top-[120%] left-[50%] w-[355px] overflow-hidden tanslate-x-[50%]"
+>
+{options.map((option, index) => (
+  <HeaderOptions
+    onSetIsSelected={setIsSelected}
+    content={option.name}
+    width={option.width}
+    isSelected={isSelected}
+    key={index}
+  />
+))}
+</motion.ul> */}
