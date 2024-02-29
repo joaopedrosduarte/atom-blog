@@ -1,5 +1,12 @@
 import usePosts from "@/hooks/usePosts";
 import Post from "./Post";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/Carousel";
 
 const Posts = () => {
   // Recebendo todas as funções e data do hook usePosts, como já mencionado.
@@ -41,20 +48,23 @@ const Posts = () => {
               ))}
             </div>
           </div>
-          <div className="flex overflow-y-scroll">
-            <div className="flex flex-nowrap gap-8">
+          <Carousel>
+            <CarouselContent>
               {ThreeBottomPosts.map((post) => (
-                <Post
-                  key={post.id}
-                  id={post.id}
-                  title={post.title}
-                  description={post.description}
-                  date={post.date}
-                  image={post.image}
-                />
+                <CarouselItem key={post.id}>
+                  <Post
+                    id={post.id}
+                    title={post.title}
+                    description={post.description}
+                    date={post.date}
+                    image={post.image}
+                  />
+                </CarouselItem>
               ))}
-            </div>
-          </div>
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </div>
     );
