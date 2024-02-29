@@ -1,4 +1,4 @@
-import GetMethods from "@/db/GetMethods";
+import GetMethods from "@/services/GetMethods";
 import PostType from "@/types/post";
 import { useQuery } from "react-query";
 
