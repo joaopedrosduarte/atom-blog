@@ -1,12 +1,13 @@
 import usePosts from "@/hooks/usePosts";
 import Post from "./Post";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/Carousel";
+import LoadingComponent from "./LoadingComponent";
 
 const Posts = () => {
   // Recebendo todas as funções e data do hook usePosts, como já mencionado.
   const { data, isLoading, isSuccess } = usePosts();
 
-  if (isLoading) return <p>Loading...</p>;
+  if (1) return <LoadingComponent />;
 
   if (isSuccess && data.length == 0) return <p>No posts found</p>;
 
