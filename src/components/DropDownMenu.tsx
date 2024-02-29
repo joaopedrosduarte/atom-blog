@@ -1,4 +1,4 @@
-import { Fade as Hamburger } from 'hamburger-react'
+import { Fade as Hamburger } from "hamburger-react";
 import { Dispatch, SetStateAction } from "react";
 import HeaderOptions from "./HeaderOptions";
 import OptionsType from "@/types/option";
@@ -30,7 +30,7 @@ const wrapperVariants = {
 };
 
 const DropDownMenu = ({
-  isSelected, 
+  isSelected,
   setIsSelected,
   isMenuOpen,
   onSetIsMenuOpen,
@@ -43,14 +43,13 @@ const DropDownMenu = ({
     >
       <div className="flex rounded-[4px] bg-light-purple items-center justify-center overflow-hidden">
         <Hamburger
-          color='#F2E7FA'
+          color="#F2E7FA"
           rounded
           size={20}
           toggle={onSetIsMenuOpen}
           toggled={isMenuOpen}
         />
       </div>
-
       <motion.ul
         initial={wrapperVariants.closed}
         variants={wrapperVariants}
@@ -58,17 +57,15 @@ const DropDownMenu = ({
         className="flex flex-col items-center gap-2 p-2 rounded-lg bg-light-purple shadow-xl 
         absolute top-[120%] left-[50%] w-[355px] overflow-hidden tanslate-x-[50%]"
       >
-        {
-          options.map((option, index) => (
-            <HeaderOptions
-              onSetIsSelected={setIsSelected}
-              content={option.name}
-              width={option.width}
-              isSelected={isSelected}
-              key={index}
-            />
-          ))
-        }
+        {options.map((option, index) => (
+          <HeaderOptions
+            onSetIsSelected={setIsSelected}
+            content={option.name}
+            width={option.width}
+            isSelected={isSelected}
+            key={index}
+          />
+        ))}
       </motion.ul>
     </motion.div>
   );

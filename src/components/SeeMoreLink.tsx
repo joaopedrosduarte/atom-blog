@@ -4,10 +4,14 @@ interface SeeMoreLinkProps {
   className: string;
 }
 
-const SeeMoreLink = ({ className }:SeeMoreLinkProps ) => {
+const SeeMoreLink = ({ className }: SeeMoreLinkProps) => {
   return (
-    <button className={`${className} group gap-1 px-2 hover:bg-dark-purple rounded-md transition-all bg-transparent items-center`} >
-      <span className="text-h1-color font-bold xs:text-lg group-hover:text-lime-green transition-colors duration-300 text-base">Veja mais</span>
+    <button
+      className={`${className} group gap-1 px-2 hover:bg-dark-purple rounded-md transition-all bg-transparent items-center`}
+    >
+      <span className="text-h1-color font-bold xs:text-lg group-hover:text-lime-green transition-colors duration-300 text-base">
+        Veja mais
+      </span>
       <Image
         width={24}
         height={24}
@@ -16,6 +20,6 @@ const SeeMoreLink = ({ className }:SeeMoreLinkProps ) => {
       />
     </button>
   );
-}
+};
 
 export default SeeMoreLink;

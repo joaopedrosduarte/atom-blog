@@ -11,7 +11,10 @@ const SearchBar = () => {
         type="text"
         placeholder="Buscar"
       />
-      <button onClick={() => setIsSearchOpen(true)} className="sm:px-[23px] px-3 rounded-[4px] sm:rounded-l-none sm:rounded-r-[4px] bg-light-purple overflow-hidden">
+      <button
+        onClick={() => setIsSearchOpen(true)}
+        className="sm:px-[23px] px-3 rounded-[4px] sm:rounded-l-none sm:rounded-r-[4px] bg-light-purple overflow-hidden"
+      >
         <div className="flex w-6 h-6 items-center">
           <Image
             className="h-max object-cover"

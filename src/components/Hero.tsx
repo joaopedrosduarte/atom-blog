@@ -16,17 +16,17 @@ const Hero = () => {
             voluptatibus commodi temporibus vero ipsum iusto facilis quod facere
             sequi mollitia, suscipit sunt deleniti?
           </span>
-          <SeeMoreLink className="lg2:flex lg:hidden md3:flex flex"/>
+          <SeeMoreLink className="lg2:flex lg:hidden md3:flex flex" />
         </div>
         <div className="flex flex-1 max-h-[346px] flex-col gap-4 lg:justify-start items-center lg:items-start">
           <Image
             alt="Image of code on a computer"
-            width={534}
+            width={570}
             height={346}
             src="/featured-image.png"
             className="h-full object-cover rounded-lg"
           />
-          <SeeMoreLink className="lg2:hidden lg:flex hidden"/>
+          <SeeMoreLink className="lg2:hidden lg:flex hidden" />
         </div>
       </div>
     </div>

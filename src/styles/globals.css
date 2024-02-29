@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 body {
-  font-family:  Roboto, -apple-system, system-ui, sans-serif;
-  background: #FBF6FF;
+  font-family: Roboto, -apple-system, system-ui, sans-serif;
+  background: #fbf6ff;
   color: #000;
 
   -webkit-font-smoothing: antialiased;

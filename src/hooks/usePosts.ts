@@ -3,7 +3,7 @@ import PostType from "@/types/post";
 import { useQuery } from "react-query";
 
 const usePosts = () => {
-  // Retornando a propria função para ter acesso a quaisquer benefício 
+  // Retornando a propria função para ter acesso a quaisquer benefício
   // que o react-query oferece atranvés da desestruturação dos props.
   return useQuery({
     queryFn: async () => {
