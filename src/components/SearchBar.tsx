@@ -11,16 +11,23 @@ interface SearchBarProps {
 }
 
 const SearchBar = ({ isFunc, onSetIsFunc }: SearchBarProps) => {
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(1920);
+  const [lock, setLock] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    if (!lock) {
+      console.log("lock: ", lock);
+      setWindowWidth(window.innerWidth)
+      setLock(true);
+    } 
+    console.log("lock: ", lock);
     window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
     });
-  });
+  },[lock]);
 
   function search(content: string) {
     if (content.trim().length == 0) {
