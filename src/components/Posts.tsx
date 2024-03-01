@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/Carousel";
+import NoPostsComponent from "./NoPostsComponent";
 
 const Posts = () => {
   // Recebendo todas as funções e data do hook usePosts, como já mencionado.
@@ -18,7 +19,7 @@ const Posts = () => {
   
   if (isError) return <ErrorComponent />;
 
-  if (isSuccess && data.length == 0) return <p>No posts found</p>;
+  if (isSuccess && data.length == 0) return <NoPostsComponent />;
 
   if (isSuccess) {
     // Separando os posts para encaixar no layout
