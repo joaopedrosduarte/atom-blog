@@ -19,11 +19,9 @@ const SearchBar = ({ isFunc, onSetIsFunc }: SearchBarProps) => {
 
   useEffect(() => {
     if (!lock) {
-      console.log("lock: ", lock);
       setWindowWidth(window.innerWidth)
       setLock(true);
     } 
-    console.log("lock: ", lock);
     window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
     });
