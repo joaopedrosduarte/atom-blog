@@ -76,7 +76,7 @@ A teor informativo, ainda é necessário rodar o JSON Server para disponibilizar
 
 ## Sugestões 🤠
 
-Como foi um projeto bastante proveitoso e satisfatório de ser produzido, consegui depositar bastante carinho em alguns componentes. Como por exemplo:
+Como foi um projeto bastante proveitoso e satisfatório de ser produzido, consegui depositar bastante carinho em alguns componentes. Então recomendo dar uma olhada nos componentes de:
 
 - No componente de pesquisa
 
@@ -93,7 +93,7 @@ Por fim
 
 ## Considerações finais.
 
-Com certeza é um projeto muito gratificante de ser feito. Vai ser liberado às 6 horas da sexta-feira, dia 1 de março. E espero que goste tanto quanto eu gostei de desenvolvê-lo. 😁
+Com certeza é um projeto muito gratificante de ser feito. Vai ser liberado às 6 horas da manhã sexta-feira, dia 1 de março. E espero que goste tanto quanto eu gostei de desenvolvê-lo. 😁
 
 Atenciosamente,
 João Pedro Duarte de Souza.
