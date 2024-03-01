@@ -3,11 +3,13 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import DropDownSerachBar from "./DropDownSearchBar";
+import React from "react";
 
 const SearchBar = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -21,6 +23,11 @@ const SearchBar = () => {
     setIsSearchOpen(false);
   }
 
+  function openSearchOnFocus() {
+    setIsSearchOpen(true);
+    inputRef.current?.focus();
+  }
+
   return (
     <div className="sm:pl-0 flex rounded-[4px] justify-center w-full max-w-[300px]">
       <input
@@ -31,7 +38,9 @@ const SearchBar = () => {
         onChange={(e) => setSearchValue(e.target.value)}
       />
       <DropDownSerachBar
+        inputRef={inputRef}
         isSearchOpen={isSearchOpen}
+        onSetIsSearchOpen={setIsSearchOpen}
         search={search}
         searchValue={searchValue}
         onSetSearchValue={setSearchValue}
@@ -39,7 +48,7 @@ const SearchBar = () => {
       <button
         onClick={
           windowWidth < 640
-            ? () => setIsSearchOpen(!isSearchOpen)
+            ? () => openSearchOnFocus()
             : () => search(searchValue)
         }
         className="sm:px-[23px] px-3 rounded-[4px] sm:rounded-l-none sm:rounded-r-[4px] bg-light-purple transition-colors duration-300 hover:bg-green-500 overflow-hidden"

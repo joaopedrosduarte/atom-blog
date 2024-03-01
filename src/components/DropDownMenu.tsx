@@ -6,16 +6,18 @@ import { motion } from "framer-motion";
 import wrapperVariants from "@/styles/animation";
 
 interface DropDownMenuProps {
+  ulRef: React.RefObject<HTMLUListElement>;
   isSelected: string;
-  setIsSelected: Dispatch<SetStateAction<string>>;
+  onSetIsSelected: Dispatch<SetStateAction<string>>;
   isMenuOpen: boolean;
-  options: OptionsType[];
   onSetIsMenuOpen: Dispatch<SetStateAction<boolean>>;
+  options: OptionsType[];
 }
 
 const DropDownMenu = ({
+  ulRef,
   isSelected,
-  setIsSelected,
+  onSetIsSelected,
   isMenuOpen,
   onSetIsMenuOpen,
   options,
@@ -30,6 +32,7 @@ const DropDownMenu = ({
           color="#F2E7FA"
           rounded
           size={20}
+          onToggle={() => ulRef.current?.focus()}
           toggle={onSetIsMenuOpen}
           toggled={isMenuOpen}
         />
@@ -41,12 +44,15 @@ const DropDownMenu = ({
           initial={wrapperVariants.closed}
           style={{ originY: "top" }}
           variants={wrapperVariants}
-          className="flex flex-col items-center gap-2 p-2 
-             w-full rounded-lg bg-light-purple sm:w-[355px]"
+          ref={ulRef}
+          tabIndex={0}
+          className="flex flex-col items-center w-full p-2  
+          gap-2 rounded-lg bg-light-purple sm:w-[355px]"
+          onBlur={() => onSetIsMenuOpen(false)}
         >
           {options.map((option, index) => (
             <HeaderOptions
-              onSetIsSelected={setIsSelected}
+              onSetIsSelected={onSetIsSelected}
               content={option.name}
               width={option.width}
               isSelected={isSelected}

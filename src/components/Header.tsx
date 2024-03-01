@@ -6,10 +6,12 @@ import SearchBar from "./SearchBar";
 import { useState } from "react";
 import Image from "next/image";
 import DropDownMenu from "./DropDownMenu";
+import React from "react";
 
 const Header = () => {
   const [isSelected, setIsSelected] = useState("Home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const ulRef = React.useRef<HTMLUListElement>(null);
   const options: OptionsType[] = [
     { name: "Home", width: "w-16" },
     { name: "Sobre", width: "w-16" },
@@ -41,8 +43,9 @@ const Header = () => {
         <div className="flex gap-2 transition-all">
           <SearchBar />
           <DropDownMenu
+            ulRef={ulRef}
             isSelected={isSelected}
-            setIsSelected={setIsSelected}
+            onSetIsSelected={setIsSelected}
             isMenuOpen={isMenuOpen}
             options={options}
             onSetIsMenuOpen={setIsMenuOpen}
