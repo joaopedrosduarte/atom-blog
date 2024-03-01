@@ -65,12 +65,12 @@ const Posts = () => {
               />
             ))}
           </div>
-          <div className="md2:hidden justify-center items-center flex pb-8 max-w-[569px]">
+          <div className="md2:hidden justify-center items-center block pb-8 xs:w-full w-[300px] px-4 max-w-[569px]">
             <Carousel>
               <CarouselContent>
                 {ThreeBottomPosts.map((post) => (
                   <CarouselItem key={post.id}>
-                    <div className="flex items-center justify-between pt-0">
+                    <div className="block items-center justify-between">
                       <Post
                         id={post.id}
                         title={post.title}

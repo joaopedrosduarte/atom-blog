@@ -23,6 +23,7 @@ const config = {
         md3: "964px",
         md2: "914px",
         xs: "524px",
+        xxs: "480px",
       },
       fontFamily: {
         poppins: "var(--font-poppins)",
