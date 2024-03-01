@@ -65,7 +65,7 @@ const Posts = () => {
               />
             ))}
           </div>
-          <div className="md2:hidden justify-center items-center block pb-8 xs:w-full w-[300px] px-4 max-w-[569px]">
+          <div className="md2:hidden justify-center items-center block pb-8 xs:w-full w-full px-8 max-w-[569px]">
             <Carousel>
               <CarouselContent>
                 {ThreeBottomPosts.map((post) => (
