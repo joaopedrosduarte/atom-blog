@@ -10,9 +10,7 @@ Assim iniciando com o comando: Git clone {url do projeto}
 
 ```bash
 
-
 ~$ git clone https://github.com/joaopedrosduarte/atom-blog.git
-
 
 ```
 
@@ -20,9 +18,7 @@ Após ter acesso ao repositório na sua máquina, basta entrar na pasta root do 
 
 ```bash
 
-
 ~$ npm install
-
 
 ```
 
@@ -30,9 +26,7 @@ Caso o comando não esteja funcionando normalmente, pode ser que o computador es
 
 ```bash
 
-
 ~$ sudo npm install
-
 
 ```
 
@@ -46,9 +40,7 @@ Dessa forma, para rodar a aplicação como um todo, basta estar no diretório ro
 
 ```bash
 
-
 ~$ npx json-server json-server/db.json
-
 
 ```
 
@@ -56,9 +48,7 @@ ou
 
 ```bash
 
-
 ~$ sudo npx json-server json-server/db.json
-
 
 ```
 
@@ -68,17 +58,13 @@ E por fim rodar a aplicação com o script dev ou:
 
 ```bash
 
-
 ~$ npm run dev
-
 
 ```
 
 ```bash
 
-
 ~$ sudo npm run dev
-
 
 ```
 
