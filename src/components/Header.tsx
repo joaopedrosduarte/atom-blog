@@ -11,7 +11,7 @@ import React from "react";
 const Header = () => {
   const [isSelected, setIsSelected] = useState("Home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const ulRef = React.useRef<HTMLUListElement>(null);
+  const [isFunc, setIsFunc] = useState("");
   const options: OptionsType[] = [
     { name: "Home", width: "w-16" },
     { name: "Sobre", width: "w-16" },
@@ -41,11 +41,12 @@ const Header = () => {
           ))}
         </ul>
         <div className="flex gap-2 transition-all">
-          <SearchBar />
+          <SearchBar isFunc={isFunc} onSetIsFunc={setIsFunc} />
           <DropDownMenu
-            ulRef={ulRef}
             isSelected={isSelected}
             onSetIsSelected={setIsSelected}
+            isFunc={isFunc}
+            onSetIsFunc={setIsFunc}
             isMenuOpen={isMenuOpen}
             options={options}
             onSetIsMenuOpen={setIsMenuOpen}

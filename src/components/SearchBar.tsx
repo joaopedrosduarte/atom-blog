@@ -1,15 +1,20 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import DropDownSerachBar from "./DropDownSearchBar";
-import React from "react";
+import DropDownSearchBar from "./DropDownSearchBar";
+import { toast } from "sonner";
 
-const SearchBar = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+interface SearchBarProps {
+  isFunc: string;
+  onSetIsFunc: (str: string) => void;
+}
+
+const SearchBar = ({ isFunc, onSetIsFunc }: SearchBarProps) => {
+  const [windowWidth, setWindowWidth] = useState(0);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -18,14 +23,33 @@ const SearchBar = () => {
   });
 
   function search(content: string) {
-    console.log("searching: " + content);
-    setSearchValue("");
-    setIsSearchOpen(false);
+    if (content.trim().length == 0) {
+      toast.warning("Porfavor, digite alguma coisa para pesquisar.")
+      setSearchValue("");
+      inputRef.current?.blur();
+    } else {
+      toast.success("Searching: " + content);
+      setSearchValue("");
+      setIsSearchOpen(false);
+      inputRef.current?.blur();
+    }
   }
 
   function openSearchOnFocus() {
-    setIsSearchOpen(true);
-    inputRef.current?.focus();
+    if (isFunc == "search") {
+      if (!isSearchOpen) {
+        setIsSearchOpen(true);
+        onSetIsFunc("search");
+        inputRef.current?.focus();
+      } else {
+        onSetIsFunc("");
+        setIsSearchOpen(false);
+      }
+    } else {
+      setIsSearchOpen(true);
+      onSetIsFunc("search");
+      inputRef.current?.focus();
+    }
   }
 
   return (
@@ -37,10 +61,11 @@ const SearchBar = () => {
         placeholder="Buscar"
         onChange={(e) => setSearchValue(e.target.value)}
       />
-      <DropDownSerachBar
+      <DropDownSearchBar
         inputRef={inputRef}
+        isFunc={isFunc}
+        onSetIsFunc={onSetIsFunc}
         isSearchOpen={isSearchOpen}
-        onSetIsSearchOpen={setIsSearchOpen}
         search={search}
         searchValue={searchValue}
         onSetSearchValue={setSearchValue}

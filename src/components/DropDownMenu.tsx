@@ -6,35 +6,58 @@ import { motion } from "framer-motion";
 import wrapperVariants from "@/styles/animation";
 
 interface DropDownMenuProps {
-  ulRef: React.RefObject<HTMLUListElement>;
   isSelected: string;
   onSetIsSelected: Dispatch<SetStateAction<string>>;
+  isFunc: string;
+  onSetIsFunc: (str: string) => void;
   isMenuOpen: boolean;
   onSetIsMenuOpen: Dispatch<SetStateAction<boolean>>;
   options: OptionsType[];
 }
 
 const DropDownMenu = ({
-  ulRef,
   isSelected,
   onSetIsSelected,
+  isFunc,
+  onSetIsFunc,
   isMenuOpen,
   onSetIsMenuOpen,
   options,
 }: DropDownMenuProps) => {
+
+  function canOpen() {
+    if (isFunc == "menu") {
+      if (isMenuOpen) {
+        return true
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
+  }
+
+  function handleOnToogle() {
+    if (isFunc == "menu") {
+      onSetIsFunc("")
+      onSetIsMenuOpen(false)
+    } else {
+      onSetIsFunc("menu")
+      onSetIsMenuOpen(true)
+    }
+  }
+
   return (
     <motion.div
-      animate={isMenuOpen ? "open" : "closed"}
+      animate={canOpen() ? "open" : "closed"}
       className="sm:relative md3:hidden"
     >
-      <div className="flex rounded-[4px] bg-light-purple hover:bg-green-500 duration-300 items-center justify-center overflow-hidden">
+      <div onClick={() => handleOnToogle()} className="flex rounded-[4px] bg-light-purple hover:bg-green-500 duration-300 items-center justify-center overflow-hidden">
         <Hamburger
           color="#F2E7FA"
           rounded
           size={20}
-          onToggle={() => ulRef.current?.focus()}
-          toggle={onSetIsMenuOpen}
-          toggled={isMenuOpen}
+          toggled={canOpen()}
         />
       </div>
       <div
@@ -44,11 +67,9 @@ const DropDownMenu = ({
           initial={wrapperVariants.closed}
           style={{ originY: "top" }}
           variants={wrapperVariants}
-          ref={ulRef}
           tabIndex={0}
           className="flex flex-col items-center w-full p-2  
           gap-2 rounded-lg bg-light-purple sm:w-[355px]"
-          onBlur={() => onSetIsMenuOpen(false)}
         >
           {options.map((option, index) => (
             <HeaderOptions
