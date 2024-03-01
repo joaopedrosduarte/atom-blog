@@ -34,7 +34,7 @@ Caso tudo esteja certo a aplicação já estará pronta para ser iniciada localm
 
 #### A aplicação roda na porta 3001 do localhost
 
-Essa informação se dá pelo fato de que, além do CSS feito com muito carinho, preocupação com estrutura de pastas e HTML estruturado e interatividade com Javascript para procurar personalizações chaves, busquei entrar em conceitos que, para mim, dão um toque a mais no projeto, que seria o levantamento de um JSON Server assim permitindo um mock efetivo de dados oriundos de requisições. Feito com as melhores práticas do mercado e utilizando as libs mais conceituadas como React-query e Axios.
+Essa informação se dá pelo fato de que, além do CSS feito com muito carinho, preocupação com estrutura de pastas e HTML estruturado e interatividade com Javascript para procurar personalizações chaves, busquei entrar em conceitos que, para mim, dão um toque a mais no projeto, que seria o levantamento de um JSON Server, cujo roda na porta 3000 por padrão, assim permitindo um mock efetivo de dados oriundos de requisições, feito com as melhores práticas do mercado e utilizando as libs mais conceituadas como React-query e Axios.
 
 Dessa forma, para rodar a aplicação como um todo, basta estar no diretório root, rodar o JSON Server com o comando:
 
