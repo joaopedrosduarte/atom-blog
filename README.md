@@ -87,7 +87,7 @@ Por fim
 
 ## Considerações finais.
 
-Com certeza é um projeto muito gratificante de ser feito. Vai ser liberado às 8 horas da sexta-feira, dia 1 de março. E espero que goste tanto quanto eu gostei de desenvolvê-lo. 😁
+Com certeza é um projeto muito gratificante de ser feito. Vai ser liberado às 6 horas da sexta-feira, dia 1 de março. E espero que goste tanto quanto eu gostei de desenvolvê-lo. 😁
 
 Atenciosamente,
 João Pedro Duarte de Souza.
