@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import DropDownSearchBar from "./DropDownSearchBar";
+import Image from "next/image";
 import { toast } from "sonner";
 
 interface SearchBarProps {
@@ -24,14 +24,14 @@ const SearchBar = ({ isFunc, onSetIsFunc }: SearchBarProps) => {
 
   function search(content: string) {
     if (content.trim().length == 0) {
-      toast.warning("Porfavor, digite alguma coisa para pesquisar.")
-      setSearchValue("");
       inputRef.current?.blur();
-    } else {
-      toast.success("Searching: " + content);
+      toast.warning("Porfavor, digite alguma coisa para pesquisar.");
       setSearchValue("");
+    } else {
       setIsSearchOpen(false);
       inputRef.current?.blur();
+      toast.success("Searching: " + content);
+      setSearchValue("");
     }
   }
 
