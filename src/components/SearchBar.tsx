@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, KeyboardEvent } from "react";
 import DropDownSearchBar from "./DropDownSearchBar";
 import Image from "next/image";
 import { toast } from "sonner";
@@ -19,13 +19,13 @@ const SearchBar = ({ isFunc, onSetIsFunc }: SearchBarProps) => {
 
   useEffect(() => {
     if (!lock) {
-      setWindowWidth(window.innerWidth)
+      setWindowWidth(window.innerWidth);
       setLock(true);
-    } 
+    }
     window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
     });
-  },[lock]);
+  }, [lock]);
 
   function search(content: string) {
     if (content.trim().length == 0) {
@@ -57,6 +57,12 @@ const SearchBar = ({ isFunc, onSetIsFunc }: SearchBarProps) => {
     }
   }
 
+  function handleEnterKey(e: KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter") {
+      search(searchValue);
+    }
+  }
+
   return (
     <div className="sm:pl-0 flex rounded-[4px] justify-center w-full max-w-[300px]">
       <input
@@ -64,12 +70,12 @@ const SearchBar = ({ isFunc, onSetIsFunc }: SearchBarProps) => {
         type="text"
         value={searchValue}
         placeholder="Buscar"
+        onKeyDown={(e) => handleEnterKey(e)}
         onChange={(e) => setSearchValue(e.target.value)}
       />
       <DropDownSearchBar
         inputRef={inputRef}
         isFunc={isFunc}
-        onSetIsFunc={onSetIsFunc}
         isSearchOpen={isSearchOpen}
         search={search}
         searchValue={searchValue}

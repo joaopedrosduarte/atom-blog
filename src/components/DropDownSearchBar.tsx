@@ -6,7 +6,6 @@ interface DropDownSearchBarProps {
   inputRef: RefObject<HTMLInputElement>;
   isSearchOpen: boolean;
   isFunc: string;
-  onSetIsFunc: (str: string) => void;
   searchValue: string;
   onSetSearchValue: Dispatch<SetStateAction<string>>;
   search: (searchValue: string) => void;
@@ -16,7 +15,6 @@ const DropDownSearchBar = ({
   inputRef,
   isSearchOpen,
   isFunc,
-  onSetIsFunc,
   search,
   searchValue,
   onSetSearchValue,
