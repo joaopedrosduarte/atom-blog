@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -17,13 +17,8 @@ const SearchBar = () => {
 
   function search(content: string) {
     console.log("searching: " + content);
-    setSearchValue("")
-    setIsSearchOpen(false);
-  }
-
-  function cleanSearch() {
-    setIsSearchOpen(false);
     setSearchValue("");
+    setIsSearchOpen(false);
   }
 
   return (
@@ -35,9 +30,18 @@ const SearchBar = () => {
         placeholder="Buscar"
         onChange={(e) => setSearchValue(e.target.value)}
       />
-      <DropDownSerachBar isSearchOpen={isSearchOpen} search={search} searchValue={searchValue} onSetSearchValue={setSearchValue}/>
+      <DropDownSerachBar
+        isSearchOpen={isSearchOpen}
+        search={search}
+        searchValue={searchValue}
+        onSetSearchValue={setSearchValue}
+      />
       <button
-        onClick={windowWidth < 640 ? () => setIsSearchOpen(!isSearchOpen) : () => search(searchValue)}
+        onClick={
+          windowWidth < 640
+            ? () => setIsSearchOpen(!isSearchOpen)
+            : () => search(searchValue)
+        }
         className="sm:px-[23px] px-3 rounded-[4px] sm:rounded-l-none sm:rounded-r-[4px] bg-light-purple transition-colors duration-300 hover:bg-green-500 overflow-hidden"
       >
         <div className="flex w-6 h-6 items-center">

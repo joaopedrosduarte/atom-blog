@@ -14,13 +14,13 @@ import NoPostsComponent from "./NoPostsComponent";
 const Posts = () => {
   // Recebendo todas as funções e data do hook usePosts, como já mencionado.
   const { data, isLoading, isSuccess, isError } = usePosts();
-
+  //carregando requisição.
   if (isLoading) return <LoadingComponent />;
-  
+  //condicional de erro na requisição
   if (isError) return <ErrorComponent />;
-
+  //condicional de sucesso porém sem conteudo na response
   if (isSuccess && data.length == 0) return <NoPostsComponent />;
-
+  //condicional de sucesso padrão
   if (isSuccess) {
     // Separando os posts para encaixar no layout
     const MainPost = data[0];

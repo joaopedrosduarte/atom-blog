@@ -34,45 +34,29 @@ const DropDownMenu = ({
           toggled={isMenuOpen}
         />
       </div>
-        <div className={`md3:hidden absolute sm:block flex w-full px-8 top-32 sm:top-[120%] left-0 sm:-translate-x-[528%]`}>
-          <motion.ul
-            initial={wrapperVariants.closed}
-            style={{ originY: "top" }}
-            variants={wrapperVariants}
-            className="flex flex-col items-center gap-2 p-2 
+      <div
+        className={`md3:hidden absolute sm:block flex w-full px-8 top-32 sm:top-[120%] left-0 sm:-translate-x-[528%]`}
+      >
+        <motion.ul
+          initial={wrapperVariants.closed}
+          style={{ originY: "top" }}
+          variants={wrapperVariants}
+          className="flex flex-col items-center gap-2 p-2 
              w-full rounded-lg bg-light-purple sm:w-[355px]"
-          >
-                {options.map((option, index) => (
-                  <HeaderOptions
-                    onSetIsSelected={setIsSelected}
-                    content={option.name}
-                    width={option.width}
-                    isSelected={isSelected}
-                    key={index}
-                  />
-                ))}
-          </motion.ul>
-        </div>
+        >
+          {options.map((option, index) => (
+            <HeaderOptions
+              onSetIsSelected={setIsSelected}
+              content={option.name}
+              width={option.width}
+              isSelected={isSelected}
+              key={index}
+            />
+          ))}
+        </motion.ul>
+      </div>
     </motion.div>
   );
 };
 
 export default DropDownMenu;
-
-{/* <motion.ul
-initial={wrapperVariants.closed}
-variants={wrapperVariants}
-style={{ originY: "top", translateX: "-93.2%" }}
-className="flex flex-col items-center gap-2 p-2 rounded-lg bg-light-purple shadow-xl 
-absolute top-[120%] left-[50%] w-[355px] overflow-hidden tanslate-x-[50%]"
->
-{options.map((option, index) => (
-  <HeaderOptions
-    onSetIsSelected={setIsSelected}
-    content={option.name}
-    width={option.width}
-    isSelected={isSelected}
-    key={index}
-  />
-))}
-</motion.ul> */}
